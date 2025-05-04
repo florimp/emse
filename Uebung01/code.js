@@ -1,15 +1,5 @@
-let SEED = "Enter";
+let SEED = "666";
 Nof1.SET_SEED(SEED);
-
-function generate_string(line_length) {
-    let ret = [];
-
-    for (let i = 0; i < line_length; i++) {
-        ret.push("Enter, </br>");
-    }
-
-    return ret.join("");
-}
 
 let experiment_configuration_function = (writer) => {
     return {
@@ -44,8 +34,8 @@ let experiment_configuration_function = (writer) => {
         ],
 
         layout: [
-            {variable: "CodeLength", treatments: ["1", "2", "3", "4", "5"]},
-
+            {variable: "Function", treatments: ["sumArray", "findMax", "findMin"]},
+            {variable: "CommentStyle", treatments: ["top", "inline_raw", "inline_formatted"]},
         ],
 
         training_configuration: {
@@ -56,21 +46,22 @@ let experiment_configuration_function = (writer) => {
 
         repetitions: 1,
 
-        measurement: Nof1.Reaction_time(Nof1.keys(["1", "2", "3", "4", "5"])),
+        measurement: Nof1.Reaction_time(Nof1.keys(["Enter"])),
 
         task_configuration: (t) => {
-
-            /*let random_int = Nof1.new_random_integer(10);*/
-
-            let my_string = generate_string(parseInt(t.treatment_combination[0].value));
-
             t.do_print_task = () => {
                 writer.clear_stage();
-                writer.print_html_on_stage(my_string);
+
+                const func = t.treatment_combination[0].value;
+                const variant = t.treatment_combination[1].value;
+                const code = codeExamples[func][variant];
+
+                const html = "<pre>" + code + "</pre><p><strong>Lies den Code und drücke [Enter], wenn du fertig bist.</strong></p>";
+                writer.print_html_on_stage(html);
             };
 
             t.accepts_answer_function = (given_answer) => {
-                return ["1", "2", "3", "4", "5"].includes(given_answer);
+                return given_answer === "Enter";
             };
 
             t.do_print_error_message = (given_answer) => {
