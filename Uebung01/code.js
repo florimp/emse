@@ -82,3 +82,9 @@ let experiment_configuration_function = (writer) => {
 };
 
 Nof1.BROWSER_EXPERIMENT(experiment_configuration_function);
+
+// Validierung, dass man den Code verstanden hat
+// abfragen, antworten - Hint geben in den Kommentare (Hat man den Code wirklich verstanden?)
+// Weniger Fälle
+
+// Nächste Woche: Hauptfaktor sichtbar!!! Jamovi!
