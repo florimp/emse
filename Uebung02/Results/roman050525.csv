@@ -1,0 +1,10 @@
+Function;CommentStyle;number_of_given_answers;expected_answer;given_answer;is_correct;time_in_milliseconds;
+findMin;top;1;;Enter;false;15058;
+sumArray;inline_raw;1;;Enter;false;12319;
+findMin;inline_raw;1;;Enter;false;14415;
+sumArray;top;1;;Enter;false;7005;
+findMax;top;1;;Enter;false;8121;
+findMax;inline_formatted;1;;Enter;false;7460;
+findMax;inline_raw;1;;Enter;false;8119;
+findMin;inline_formatted;1;;Enter;false;6557;
+sumArray;inline_formatted;1;;Enter;false;4488;
